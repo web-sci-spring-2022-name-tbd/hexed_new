@@ -1,4 +1,7 @@
 <app-name [startGame]="startTheGame" (newDataEvent)="getName($event)"></app-name>
 <button type="button" (click)="startGame()">Start Game</button>
 <button type="button" (click)="resetGame()">Restart</button>
+<app-slider color="red" c="r"></app-slider>
+<app-slider color="green" c="g"></app-slider>
+<app-slider color="blue" c="b"></app-slider>
 <router-outlet></router-outlet>
