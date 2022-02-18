@@ -1,2 +1,4 @@
-
+<app-name [startGame]="startTheGame" (newDataEvent)="getName($event)"></app-name>
+<button type="button" (click)="startGame()">Start Game</button>
+<button type="button" (click)="resetGame()">Restart</button>
 <router-outlet></router-outlet>

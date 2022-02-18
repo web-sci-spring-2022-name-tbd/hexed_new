@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hexed_new';
+
+  startTheGame = false;
+
+  startGame() {
+    this.startTheGame = true;
+  }
+  
+  getName(data: Array<string | number>) {
+    console.log("Name is " + data[0] + ", and the time is " + data[1]);
+  }
+
+  resetGame() {
+    this.startTheGame = false;
+  }
 }
