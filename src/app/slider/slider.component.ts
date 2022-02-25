@@ -8,7 +8,6 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SliderComponent implements OnInit {
   @Input() c: string = "";
   @Input() color: string = "";
-  @Input() val: string = "50";
   constructor() {
   }
 
