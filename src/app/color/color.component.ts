@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./color.component.css']
 })
 export class ColorComponent implements OnInit {
+  colorHex: string = "";
+  colorHTML: HTMLElement;
 
-  constructor() { }
+  constructor() { 
+    this.colorHTML = document.getElementById("color")!;
+  }
 
   ngOnInit(): void {
+    this.colorHTML = document.getElementById("color")!;
+  }
+  generate() {
+    this.colorHTML = document.getElementById("color")!;
+    this.colorHex = '#' + Math.floor(Math.random()*16777215).toString(16);
+    this.colorHTML.style.backgroundColor = this.colorHex;
   }
 
 }

@@ -1,19 +1,16 @@
 #timer {
-    float:right;
+    height:fit-content;
+}
+
+#color {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  display:block;
 }
 
 .right {
     float:right;
-}
-
-#colorbox {
-  width: 100px;
-  height: 100px;
-}
-
-#timer {
-  width: 100px;
-  height: 100px;
 }
 
 #high-scores {
