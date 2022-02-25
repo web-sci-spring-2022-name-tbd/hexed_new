@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { TimerComponent } from './timer/timer.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent {
   startTheGame = false;
 
 
-  startGame() {
+  startGame(timer: TimerComponent) {
     // check to see if name is inputted
     let name = document.getElementById("nameInput") as HTMLInputElement;
     if (name.value === '' || name.value == 'undefined') {
@@ -29,10 +30,15 @@ export class AppComponent {
     }
 
     //start timer
-    let timer = document.getElementById("timer") as HTMLElement;
-    show(timer);
     this.startTheGame = true;
     console.log(this)
+
+  }
+
+  startTimer(time: number) {
+    // let timer = document.getElementById("timer") as TimerComponent;
+    // show(timer);
+    console.log(this);
 
   }
   
