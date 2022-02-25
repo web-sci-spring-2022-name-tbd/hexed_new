@@ -1,5 +1,6 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { ColorComponent } from './color/color.component';
+import { ScoreComponent } from './score/score.component';
 import { TimerComponent } from './timer/timer.component';
 
 @Component({
@@ -11,13 +12,16 @@ import { TimerComponent } from './timer/timer.component';
 export class AppComponent {
   title = 'hexed_new';
 
-  startTheGame = false;
+  public startTheGame = false;
   private timerHTML: HTMLInputElement | null = null;
   private colorHTML: HTMLElement | null = null;
+  private scoreHTML: HTMLElement | null = null;
+  timeVal: number = 60;
 
   startGame(timer: TimerComponent, color: ColorComponent) {
     this.timerHTML = document.getElementById("timer") as HTMLInputElement;
     this.colorHTML = document.getElementById("color") as HTMLElement;
+    this.scoreHTML = document.getElementById("score") as HTMLElement;
     console.log(this.colorHTML)
     // check to see if name is inputted
     let name = document.getElementById("nameInput") as HTMLInputElement;
@@ -28,21 +32,27 @@ export class AppComponent {
 
     // check to se if time is inputted
     let time = document.getElementById("timeInput") as HTMLInputElement;
-    let timeVal: number = parseInt(time.value);
-    if (isNaN(timeVal)) {
+    this.timeVal = parseInt(time.value);
+    if (isNaN(this.timeVal)) {
       time.value = "60";
-      timeVal = 60;
+      this.timeVal = 60;
     }
 
+    if (this.timeVal > 100 || this.timeVal < 1) {
+      alert("Enter a valid time");
+      return;
+    }
+    
+
     //start timer
-    this.startTimer(timer, timeVal);
+    this.startTimer(timer, this.timeVal);
     this.showColor(color);
 
     this.startTheGame = true;
 
   }
 
-  startTimer(timer: TimerComponent, seconds: number) {
+  startTimer(timer: TimerComponent, seconds: number = 60) {
     console.log(this.timerHTML)
     show(this.timerHTML!);
     timer.seconds = seconds;
@@ -53,6 +63,7 @@ export class AppComponent {
     console.log(color)
     color.generate();
     show(this.colorHTML!)
+    show(this.scoreHTML!)
   }
   
   getName(data: Array<string | number>) {
@@ -63,6 +74,15 @@ export class AppComponent {
     this.startTheGame = false;
     hide(this.timerHTML!);
     hide(this.colorHTML!)
+    hide(this.scoreHTML!);
+  }
+
+  parentScore(data: ScoreComponent) {
+    let timeRemaining: number = Number(this.timerHTML!.innerText);
+    let timeLimit: number = this.timeVal;
+    let color: String = this.colorHTML!.style.backgroundColor;
+    data.getScore(timeRemaining, timeLimit, color);
+
   }
 }
 
