@@ -40,7 +40,7 @@ export class AppComponent {
     console.log("Name is " + data[0] + ", and the time is " + data[1]);
   }
 
-  resetGame() {
+  stopGame() {
     this.startTheGame = false;
   }
 }
