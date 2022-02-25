@@ -13,6 +13,8 @@ export class AppComponent {
 
 
   startGame(timer: TimerComponent) {
+    console.log(timer);
+
     // check to see if name is inputted
     let name = document.getElementById("nameInput") as HTMLInputElement;
     if (name.value === '' || name.value == 'undefined') {
@@ -23,23 +25,25 @@ export class AppComponent {
     // check to se if time is inputted
     let time = document.getElementById("timeInput") as HTMLInputElement;
     let timeVal: number = parseInt(time.value);
-    console.log(timeVal)
     if (isNaN(timeVal)) {
       time.value = "60";
       timeVal = 60;
     }
 
     //start timer
+    let timerHTML = document.getElementById("timer") as HTMLInputElement;
+    this.startTimer(timer, timeVal, timerHTML);
+
+
+
     this.startTheGame = true;
-    console.log(this)
 
   }
 
-  startTimer(time: number) {
-    // let timer = document.getElementById("timer") as TimerComponent;
-    // show(timer);
-    console.log(this);
-
+  startTimer(timer: TimerComponent, seconds: number, timerHTML: HTMLElement) {
+    show(timerHTML);
+    timer.seconds = seconds;
+    timer.start();
   }
   
   getName(data: Array<string | number>) {
@@ -48,6 +52,8 @@ export class AppComponent {
 
   stopGame() {
     this.startTheGame = false;
+    let timerHTML = document.getElementById("timer") as HTMLInputElement;
+    hide(timerHTML);
   }
 }
 

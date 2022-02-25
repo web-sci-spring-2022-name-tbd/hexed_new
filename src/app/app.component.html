@@ -1,14 +1,10 @@
 <app-name [startGame]="startTheGame" (newDataEvent)="getName($event)"></app-name>
 <button type="button" (click)="startGame(timer)">Start Game</button>
 <button type="button" (click)="stopGame()">Stop</button>
-<!-- <app-timer id="timer" style="display:none" time=#timeInput></app-timer> -->
-<!-- <app-timer id="timer" time=#timeInput></app-timer> -->
+<app-timer id="timer" #timer></app-timer>
 
-<!-- <app-slider color="red" c="r"></app-slider>
+<app-slider color="red" c="r"></app-slider>
 <app-slider color="green" c="g"></app-slider>
-<app-slider color="blue" c="b"></app-slider> -->
-<h3>Countdown to Liftoff (via local variable)</h3>
-<button type="button" (click)="timer.start()">Start</button>
-<button type="button" (click)="timer.stop()">Stop</button>
-<app-timer #timer></app-timer>
+<app-slider color="blue" c="b"></app-slider>
+
 <router-outlet></router-outlet>
