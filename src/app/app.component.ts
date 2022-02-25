@@ -17,6 +17,7 @@ export class AppComponent {
   private colorHTML: HTMLElement | null = null;
   private scoreHTML: HTMLElement | null = null;
   timeVal: number = 60;
+  name: String = "";
 
   startGame(timer: TimerComponent, color: ColorComponent) {
     this.timerHTML = document.getElementById("timer") as HTMLInputElement;
@@ -24,8 +25,9 @@ export class AppComponent {
     this.scoreHTML = document.getElementById("score") as HTMLElement;
     console.log(this.colorHTML)
     // check to see if name is inputted
-    let name = document.getElementById("nameInput") as HTMLInputElement;
-    if (name.value === '' || name.value == 'undefined') {
+    let nameHTML = document.getElementById("nameInput") as HTMLInputElement;
+    this.name = nameHTML.value;
+    if (this.name === '' || this.name == 'undefined') {
       alert("you must enter a name");
       return;
     }
@@ -81,7 +83,8 @@ export class AppComponent {
     let timeRemaining: number = Number(this.timerHTML!.innerText);
     let timeLimit: number = this.timeVal;
     let color: String = this.colorHTML!.style.backgroundColor;
-    data.getScore(timeRemaining, timeLimit, color);
+    let name: String = this.name;
+    data.getScore(timeRemaining, timeLimit, color, name);
 
   }
 }

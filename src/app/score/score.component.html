@@ -5,3 +5,17 @@
 <h2>Your score: <span id="scoreNum"></span></h2>
 
 <!-- top 10: -->
+<div>
+    <p>High Scores:</p>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Score</th>
+        </tr>
+            <tr *ngFor="let item of scoreArray | slice:0:10;">
+                <td *ngFor="let cell of item">
+                    {{ cell }}
+                </td>
+            </tr>
+    </table>
+</div>
