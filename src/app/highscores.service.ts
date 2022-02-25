@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class HttpService {
+export class HighscoresService {
 
   private apiserver = "https://freebee.fun/cgi-bin/scores";
 
