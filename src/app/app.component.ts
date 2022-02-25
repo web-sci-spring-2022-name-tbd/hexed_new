@@ -18,11 +18,18 @@ export class AppComponent {
   private scoreHTML: HTMLElement | null = null;
   timeVal: number = 60;
   name: String = "";
+         
+  // ngOnInit(): void {
+  //   let notSubmit = document.getElementById("notSubmitButton") as HTMLElement;
+  //   hide(notSubmit);
+  // }
+
+    
 
   startGame(timer: TimerComponent, color: ColorComponent) {
     this.timerHTML = document.getElementById("timer") as HTMLInputElement;
     this.colorHTML = document.getElementById("color") as HTMLElement;
-    this.scoreHTML = document.getElementById("score") as HTMLElement;
+    this.scoreHTML = document.getElementById("notSubmitScore") as HTMLElement;
     console.log(this.colorHTML)
     // check to see if name is inputted
     let nameHTML = document.getElementById("nameInput") as HTMLInputElement;
@@ -55,17 +62,17 @@ export class AppComponent {
   }
 
   startTimer(timer: TimerComponent, seconds: number = 60) {
-    console.log(this.timerHTML)
     show(this.timerHTML!);
     timer.seconds = seconds;
     timer.start();
   }
 
   showColor(color: ColorComponent) {
-    console.log(color)
     color.generate();
     show(this.colorHTML!)
-    show(this.scoreHTML!)
+    let button = document.getElementById("submitScore") as HTMLButtonElement;
+    show(button);
+    // show(this.scoreHTML!)
   }
   
   getName(data: Array<string | number>) {
@@ -77,6 +84,8 @@ export class AppComponent {
     hide(this.timerHTML!);
     hide(this.colorHTML!)
     hide(this.scoreHTML!);
+    let submitButton = document.getElementById("submitScore") as HTMLElement;
+    hide(submitButton);
   }
 
   parentScore(data: ScoreComponent) {
@@ -85,6 +94,7 @@ export class AppComponent {
     let color: String = this.colorHTML!.style.backgroundColor;
     let name: String = this.name;
     data.getScore(timeRemaining, timeLimit, color, name);
+    show(this.scoreHTML!)
 
   }
 }

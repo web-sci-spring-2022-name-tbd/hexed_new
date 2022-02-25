@@ -17,7 +17,7 @@ export class ScoreComponent implements OnInit {
     this.scores.sort((a: Array<number|String>, b: Array<number|String>) => {
       return (a[1] > b[1] ? -1 : 1);
   })
-  console.log(this.scores)
+  // console.log(this.scores)
     return this.scores;
   }
 
