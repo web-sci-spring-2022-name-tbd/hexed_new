@@ -19,8 +19,24 @@ app.get('/getscores', function (req, res) {
 });
 
 app.get("/sendscore", (req, res) => {
-  console.log(req.body);
-  res.json({ 'test': 'hi' });
+  const { name } = req.query;
+  const { score } = req.query;
+  if (name === undefined || score === undefined ) {
+    // throw an error here
+    res.status(401).send();
+    return;
+  } else {
+    // make GET request to https://freebee.fun/cgi-bin/scores?name=score
+    axios.get(`https://freebee.fun/cgi-bin/scores?${name}=${score}`)
+      .then((data) => {
+        console.log("it worked");
+        res.status(200).send();
+      }
+      )
+      .catch((err) => {
+        console.log("Error: " + err);
+      });
+  }
 });
 
 app.listen(PORT, () => {
