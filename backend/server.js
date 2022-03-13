@@ -1,12 +1,14 @@
 const express = require('express');
-const app = express();
-const port = 3000;
+const path = require('path');
 const axios = require('axios');
 
+const PORT = 3000;
 
-app.listen(port, () => {
-  console.log('Listening on *:3000');
-});
+const app = express();
+
+app.use( express.static(path.join(__dirname, '../dist/hexed_new/')));
+
+
 
 app.get('/getscores', function (req, res) {
   axios.get("https://freebee.fun/cgi-bin/scores")
@@ -21,4 +23,8 @@ app.get('/getscores', function (req, res) {
 app.get("/sendscore", (req, res) => {
   console.log(req.body);
   res.json({ 'test': 'hi' });
+});
+
+app.listen(PORT, () => {
+  console.log(`Listening on http://localhost:${PORT}`);
 });
