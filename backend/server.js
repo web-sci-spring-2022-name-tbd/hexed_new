@@ -8,8 +8,6 @@ const app = express();
 
 app.use( express.static(path.join(__dirname, '../dist/hexed_new/')));
 
-
-
 app.get('/getscores', function (req, res) {
   axios.get("https://freebee.fun/cgi-bin/scores")
     .then((res2) => {
