@@ -2,6 +2,7 @@ import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { ColorComponent } from './color/color.component';
 import { ScoreComponent } from './score/score.component';
 import { TimerComponent } from './timer/timer.component';
+import { HighscoresService } from './highscores.service';
 
 @Component({
   selector: 'app-root',
@@ -18,13 +19,15 @@ export class AppComponent {
   private scoreHTML: HTMLElement | null = null;
   timeVal: number = 60;
   name: String = "";
-         
-  // ngOnInit(): void {
-  //   let notSubmit = document.getElementById("notSubmitButton") as HTMLElement;
-  //   hide(notSubmit);
-  // }
 
-    
+  constructor( private httpService: HighscoresService) {}
+  
+  testGet(endpoint: string) {
+    console.log(endpoint);
+    this.httpService.sendGet(endpoint).subscribe((data) => {
+      console.log(data);
+    })
+  }
 
   startGame(timer: TimerComponent, color: ColorComponent) {
     this.timerHTML = document.getElementById("timer") as HTMLInputElement;

@@ -6,8 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./slider.component.css']
 })
 export class SliderComponent implements OnInit {
-  @Input() c: string = "";
-  @Input() color: string = "";
+  @Input() c!: string;
+  @Input() color!: string;
   constructor() {
   }
 
