@@ -79,7 +79,9 @@ export class ScoreComponent implements OnInit {
     // console.log(`actual\tr: ${actual_red} g: ${actual_green} b: ${actual_blue}`)
     // console.log(`time remaining: ${remainingTime} time limit: ${timeLimit}`)
 
-    let score = ((255 - Math.abs(actual_red - r_value)) + (255 - Math.abs(actual_green - g_value)) + (255 - Math.abs(actual_blue - b_value)) * Math.floor(remainingTime) * (1000 * (101 - timeLimit)));
+    // console.log(`${(255 - Math.abs(actual_red - r_value)) + (255 - Math.abs(actual_green - g_value))} * ${Math.floor(remainingTime)*1000*(101-timeLimit)}`)
+
+    let score = ((255 - Math.abs(actual_red - r_value)) + (255 - Math.abs(actual_green - g_value)) + (255 - Math.abs(actual_blue - b_value))) * Math.floor(remainingTime) * (1000 * (101 - timeLimit));
 
     this.scoreHTML!.textContent = String(score);    
     return [name, score];
