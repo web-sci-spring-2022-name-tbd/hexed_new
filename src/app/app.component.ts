@@ -85,11 +85,8 @@ export class AppComponent {
     hide(submitButton);
   }
 
-  parentScore(data: ScoreComponent) {
-    //innerText contains letters as well
-    let secondsText: String = this.timerHTML!.innerText;
-    let timeRemaining: number = Number(secondsText.match('/\d+/'));
-    //let timeRemaining: number = Number(this.timerHTML!.innerText);
+  parentScore(data: ScoreComponent, timer: TimerComponent) {
+    let timeRemaining: number = Number(timer.seconds);
     let timeLimit: number = this.timeVal;
     let color: String = this.colorHTML!.style.backgroundColor;
     let name: String = this.name;

@@ -36,7 +36,7 @@ export class TimerComponent implements OnInit {
     this.clearTimer();
     this.intervalID = window.setInterval(() => {
       if (this.seconds == 0) {
-        this.message = 'times up!';
+        this.message = '0 seconds remaining';
         alert("you are out of time")
         // emit something to parent
         this.clearTimer();

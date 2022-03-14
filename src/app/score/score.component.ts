@@ -45,11 +45,13 @@ export class ScoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.sendGet('getscores').subscribe((response: any) => {
+      console.log(response)
       Object.entries(response['scores']).forEach(
         ([key, value]) => {
           this.scores.push([key, Number(value)])
         }
       );
+      console.log(this.scores)
     }, (error) => {
       console.log('Error is ', error);
     })
@@ -74,12 +76,17 @@ export class ScoreComponent implements OnInit {
 
     let userCode = rgbToHex(r_value, g_value, b_value);
 
+
     color = rgb2hex(color);
+
     let actual_red = parseInt(color[1] + color[2], 16);
     let actual_green = parseInt(color[3] + color[4], 16);
     let actual_blue = parseInt(color[5] + color[6], 16);
-    //let arr: Array<number | String> = [r_value, g_value, b_value, color, actual_red, actual_green, actual_blue, remainingTime, timeLimit];
-    //console.log(arr)
+    // let arr: Array<number | String> = [r_value, g_value, b_value, color, actual_red, actual_green, actual_blue, remainingTime, timeLimit];
+    // console.log(arr)
+    console.log(`guessed\tr: ${r_value} g: ${g_value} b: ${b_value}`)
+    console.log(`actual\tr: ${actual_red} g: ${actual_green} b: ${actual_blue}`)
+    console.log(`time remaining: ${remainingTime} time limit: ${timeLimit}`)
 
     let score = ((255 - Math.abs(actual_red - r_value)) + (255 - Math.abs(actual_green - g_value)) + (255 - Math.abs(actual_blue - b_value)) * Math.floor(remainingTime) * (1000 * (101 - timeLimit)));
 
