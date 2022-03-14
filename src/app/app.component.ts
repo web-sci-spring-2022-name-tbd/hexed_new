@@ -20,8 +20,8 @@ export class AppComponent {
   timeVal: number = 60;
   name: String = "";
 
-  constructor( private httpService: HighscoresService) {}
-  
+  constructor(private httpService: HighscoresService) { }
+
   testGet(endpoint: string) {
     console.log(endpoint);
     this.httpService.sendGet(endpoint).subscribe((data) => {
@@ -54,7 +54,7 @@ export class AppComponent {
       alert("Enter a valid time");
       return;
     }
-    
+
 
     //start timer
     this.startTimer(timer, this.timeVal);
@@ -77,7 +77,7 @@ export class AppComponent {
     show(button);
     // show(this.scoreHTML!)
   }
-  
+
   getName(data: Array<string | number>) {
     console.log("Name is " + data[0] + ", and the time is " + data[1]);
   }
@@ -92,7 +92,10 @@ export class AppComponent {
   }
 
   parentScore(data: ScoreComponent) {
-    let timeRemaining: number = Number(this.timerHTML!.innerText);
+    //innerText contains letters as well
+    let secondsText: String = this.timerHTML!.innerText;
+    let timeRemaining: number = Number(secondsText.match('/\d+/'));
+    //let timeRemaining: number = Number(this.timerHTML!.innerText);
     let timeLimit: number = this.timeVal;
     let color: String = this.colorHTML!.style.backgroundColor;
     let name: String = this.name;
@@ -105,12 +108,12 @@ export class AppComponent {
 
 // Show an element
 var show = function (elem: HTMLElement) {
-	elem.style.display = 'block';
+  elem.style.display = 'block';
 };
 
 // Hide an element
 var hide = function (elem: HTMLElement) {
-	elem.style.display = 'none';
+  elem.style.display = 'none';
 };
 
 // // just trying something here
