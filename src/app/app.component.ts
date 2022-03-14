@@ -90,9 +90,9 @@ export class AppComponent {
     let timeLimit: number = this.timeVal;
     let color: String = this.colorHTML!.style.backgroundColor;
     let name: String = this.name;
-    data.getScore(timeRemaining, timeLimit, color, name);
+    let info = data.getScore(timeRemaining, timeLimit, color, name) as Array<string | number>;
+    data.updateScores(info);
     show(this.scoreHTML!)
-
   }
 }
 
