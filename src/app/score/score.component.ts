@@ -68,8 +68,8 @@ export class ScoreComponent implements OnInit {
     let actual_red = parseInt(color[1] + color[2], 16);
     let actual_green = parseInt(color[3] + color[4], 16);
     let actual_blue = parseInt(color[5] + color[6], 16);
-    let arr: Array<number | String> = [r_value, g_value, b_value, color, actual_red, actual_green, actual_blue, remainingTime, timeLimit];
-    console.log(arr)
+    //let arr: Array<number | String> = [r_value, g_value, b_value, color, actual_red, actual_green, actual_blue, remainingTime, timeLimit];
+    //console.log(arr)
 
     let score = ((255 - Math.abs(actual_red - r_value)) + (255 - Math.abs(actual_green - g_value)) + (255 - Math.abs(actual_blue - b_value)) * Math.floor(remainingTime) * (1000 * (101 - timeLimit)));
 
