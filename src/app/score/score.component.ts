@@ -50,8 +50,6 @@ export class ScoreComponent implements OnInit {
           this.scores.push([key, Number(value)])
         }
       );
-
-
     }, (error) => {
       console.log('Error is ', error);
     })
