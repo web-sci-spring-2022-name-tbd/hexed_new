@@ -20,14 +20,8 @@ export class AppComponent {
   timeVal: number = 60;
   name: String = "";
 
-  constructor(private httpService: HighscoresService) { }
+  constructor() { }
 
-  testGet(endpoint: string) {
-    console.log(endpoint);
-    this.httpService.sendGet(endpoint).subscribe((data) => {
-      console.log(data);
-    })
-  }
 
   startGame(timer: TimerComponent, color: ColorComponent) {
     this.timerHTML = document.getElementById("timer") as HTMLInputElement;

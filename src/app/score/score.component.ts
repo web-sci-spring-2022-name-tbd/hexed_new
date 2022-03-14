@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { HighscoresService } from '../highscores.service';
 
 @Component({
   selector: 'app-score',
@@ -40,9 +41,22 @@ export class ScoreComponent implements OnInit {
   }
 
 
-  constructor() { }
+  constructor(private service: HighscoresService) { }
 
   ngOnInit(): void {
+    this.service.sendGet('getscores').subscribe((response: any) => {
+      Object.entries(response).forEach(
+        ([key, value]) => {
+          //TODO: Add to the leaderboard Here
+          //key is the name and value is the score
+          console.log(key, value)
+        }
+      );
+
+
+    }, (error) => {
+      console.log('Error is ', error);
+    })
   }
 
   emitToParent() {
