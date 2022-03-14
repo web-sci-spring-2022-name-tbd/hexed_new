@@ -28,7 +28,7 @@ app.get("/sendscore", (req, res) => {
   const { score } = req.query;
   if (name === undefined || score === undefined ) {
     // throw an error here
-    res.status(401).send();
+    res.status(400).send();
     return;
   } else {
     // make GET request to https://freebee.fun/cgi-bin/scores?name=score

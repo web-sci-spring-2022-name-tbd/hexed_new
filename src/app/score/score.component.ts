@@ -100,7 +100,9 @@ export class ScoreComponent implements OnInit {
       let lowest = this.scores[this.scores.length - 1][1] as number;
 
       if (score > lowest) {
-        this.service.sendGet(`sendscore?${name}=${score}`);
+        this.service.sendGet(`sendscore?name=${name}&score=${score}`).subscribe((response: any) => {
+          console.log(response)
+        });
       }
 
       this.localScores.push([name, score]);
