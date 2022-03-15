@@ -1,5 +1,7 @@
 <div class="slide-{{color}} slide">
     <p class ="color-title">{{color}}</p>
-    <input id ="{{c}}-input" type="range" min="0" max="255" value="50" class="slider" (input)="change(this)">
-    <input id="{{c}}-val" value="50" class="right" disabled>
+    <div class="slider-cnt">
+      <input id ="{{c}}-input" type="range" min="0" max="255" value="50" class="slider" (input)="change(this)">
+      <input id="{{c}}-val" value="50" class="right" disabled>
+    </div>
 </div>

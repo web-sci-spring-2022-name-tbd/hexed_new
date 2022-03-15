@@ -6,13 +6,13 @@
 
 <div id="notSubmitScore" class="w3-animate-opacity" style="display:none">
     <!-- your score -->
-<h2 id = "yourScore">Your score: <span id="scoreNum"></span></h2>
-    <p id = "title" >High Scores:</p>
+<h2 id="your-score">Your score: <span id="scoreNum"></span></h2>
+    <p id="title" >High Scores:</p>
 
     <!-- top 10: -->
     <table id = "moves">
         <tr>
-            <th>Username</th> 
+            <th>Username</th>
             <th>Score</th>
         </tr>
             <tr *ngFor="let item of scoreArray | slice:0:10;">
