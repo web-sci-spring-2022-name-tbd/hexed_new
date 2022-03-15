@@ -14,7 +14,7 @@ export class ScoreComponent implements OnInit {
   private scores: Array<Array<number | String>> = [];
   private localScores: Array<Array<number | String>> = [];
 
-  
+
   ngOnInit(): void {
     // this.pullScores();
     this.updateScores(["", 0]);
@@ -83,7 +83,7 @@ export class ScoreComponent implements OnInit {
 
     let score = ((255 - Math.abs(actual_red - r_value)) + (255 - Math.abs(actual_green - g_value)) + (255 - Math.abs(actual_blue - b_value))) * Math.floor(remainingTime) * (1000 * (101 - timeLimit));
 
-    this.scoreHTML!.textContent = String(score);    
+    this.scoreHTML!.textContent = String(score);
     return [name, score];
   }
 
@@ -108,7 +108,7 @@ export class ScoreComponent implements OnInit {
       }
 
       this.localScores.push([name, score]);
-  
+
       for (const x of this.localScores) {
         this.scores.push(x);
       }

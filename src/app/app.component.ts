@@ -59,16 +59,16 @@ export class AppComponent {
   }
 
   startTimer(timer: TimerComponent, seconds: number = 60) {
-    show(this.timerHTML!);
+    show(this.timerHTML!, 'flex');
     timer.seconds = seconds;
     timer.start();
   }
 
   showColor(color: ColorComponent) {
     color.generate();
-    show(this.colorHTML!)
+    show(this.colorHTML!, 'block')
     let button = document.getElementById("submitScore") as HTMLButtonElement;
-    show(button);
+    show(button, 'block');
     // show(this.scoreHTML!)
   }
 
@@ -88,18 +88,19 @@ export class AppComponent {
   parentScore(data: ScoreComponent, timer: TimerComponent) {
     let timeRemaining: number = Number(timer.seconds);
     let timeLimit: number = this.timeVal;
-    let color: String = this.colorHTML!.style.backgroundColor;
+    let color: String = document.querySelector("body")!.style.backgroundColor;
+    console.log(color);
     let name: String = this.name;
     let info = data.getScore(timeRemaining, timeLimit, color, name) as Array<string | number>;
     data.updateScores(info);
-    show(this.scoreHTML!)
+    show(this.scoreHTML!, 'block')
   }
 }
 
 
 // Show an element
-var show = function (elem: HTMLElement) {
-  elem.style.display = 'block';
+var show = function (elem: HTMLElement, style: string) {
+  elem.style.display = style;
 };
 
 // Hide an element

@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SliderComponent implements OnInit {
   @Input() c!: string;
   @Input() color!: string;
+
   constructor() {
   }
 
@@ -19,5 +20,4 @@ export class SliderComponent implements OnInit {
     let slider = document.getElementById(`${obj['c']}-input`) as HTMLInputElement;
     input.value = slider.value;
   }
-
 }

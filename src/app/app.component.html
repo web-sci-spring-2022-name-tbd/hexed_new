@@ -1,11 +1,15 @@
 <app-name [startGame]="startTheGame" (newDataEvent)="getName($event)"></app-name>
-<button type="button" (click)="startGame(timer, color)">Start Game</button>
-<button type="button" (click)="stopGame()">Stop</button>
-<app-timer id="timer" style="display:none" class="right" #timer></app-timer>
+<div class="btn-cnt">
+  <button class="btn-main" type="button" (click)="startGame(timer, color)">Start Game</button>
+  <button class="btn-main" type="button" (click)="stopGame()">Stop</button>
+</div>
+<app-timer id="timer" #timer></app-timer>
 
-<app-slider color="red" c="r"></app-slider>
-<app-slider color="green" c="g"></app-slider>
-<app-slider color="blue" c="b"></app-slider>
+<div id="slider-cnt">
+  <app-slider color="red" c="r"></app-slider>
+  <app-slider color="green" c="g"></app-slider>
+  <app-slider color="blue" c="b"></app-slider>
+</div>
 
 <app-color id="color" #color></app-color>
 <app-score id="score" (getScoreEvent)="parentScore($event, timer)" #score></app-score>

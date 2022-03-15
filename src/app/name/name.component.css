@@ -1,9 +1,35 @@
+:host {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  --main-color: rgb(255, 145, 0);
+}
+
+input:focus, input[type]:focus, .uneditable-input:focus {
+  border-color: var(--main-color);
+  box-shadow: 0 1px 8px var(--main-color);
+  inset: 0 0 8px var(--main-color);
+  outline: 0 none !important;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .givenInput {
-  color: #333;
-  font-size: 1.2em;
-	margin: 0 auto;
-  border-radius: 0;
+  color: grey;
+  font-size: 2rem;
+	margin: 10px;
   border: none;
-  border-bottom: 1px solid grey;
-  margin-right: 2px;
+  border-bottom: 2px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0 0 10px black;
 }
