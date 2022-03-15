@@ -16,8 +16,3 @@
 #slider-cnt {
   flex-flow: column;
 }
-
-.btn-main {
-  width: auto;
-  background-color: rgb(219, 219, 219);
-}
