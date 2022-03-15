@@ -3,6 +3,7 @@ import { ColorComponent } from './color/color.component';
 import { ScoreComponent } from './score/score.component';
 import { TimerComponent } from './timer/timer.component';
 import { HighscoresService } from './highscores.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -76,12 +77,13 @@ export class AppComponent {
     console.log("Name is " + data[0] + ", and the time is " + data[1]);
   }
 
-  stopGame() {
+  stopGame(timer: TimerComponent) {
     this.startTheGame = false;
     hide(this.timerHTML!);
     hide(this.colorHTML!)
     hide(this.scoreHTML!);
     let submitButton = document.getElementById("submitScore") as HTMLElement;
+    timer.stop();
     hide(submitButton);
   }
 
@@ -92,7 +94,8 @@ export class AppComponent {
     let name: String = this.name;
     let info = data.getScore(timeRemaining, timeLimit, color, name) as Array<string | number>;
     data.updateScores(info);
-    show(this.scoreHTML!)
+    timer.stop();
+    show(this.scoreHTML!);
   }
 }
 

@@ -1,6 +1,6 @@
 <app-name [startGame]="startTheGame" (newDataEvent)="getName($event)"></app-name>
 <button type="button" (click)="startGame(timer, color)">Start Game</button>
-<button type="button" (click)="stopGame()">Stop</button>
+<button type="button" (click)="stopGame(timer)">Stop</button>
 <app-timer id="timer" style="display:none" class="right" #timer></app-timer>
 
 <app-slider color="red" c="r"></app-slider>
