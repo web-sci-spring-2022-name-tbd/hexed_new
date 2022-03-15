@@ -1,7 +1,7 @@
 <app-name [startGame]="startTheGame" (newDataEvent)="getName($event)"></app-name>
 <div class="btn-cnt">
   <button class="btn-main" type="button" (click)="startGame(timer, color)">Start Game</button>
-  <button class="btn-main" type="button" (click)="stopGame()">Stop</button>
+  <button class="btn-main" type="button" (click)="stopGame(timer)">Stop</button>
 </div>
 <app-timer id="timer" #timer></app-timer>
 
