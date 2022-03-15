@@ -42,6 +42,9 @@ body {
   width: 100%;
   will-change: transform;
   margin-right: 10px;
+  width: auto;
+  background-color: white;
+  color: black;
 }
 
 .button:disabled {
