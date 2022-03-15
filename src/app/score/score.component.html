@@ -1,15 +1,18 @@
 <!-- button to get scored -->
-<button type="button" (click)="emitToParent()" id="submitScore" style="display:none">Submit</button>
+<button type="button" (click)="emitToParent()" class = "button" id="submitScore" style="display:none">Submit</button>
 
-<div id="notSubmitScore" style="display:none">
+
+
+
+<div id="notSubmitScore" class="w3-animate-opacity" style="display:none">
     <!-- your score -->
-<h2>Your score: <span id="scoreNum"></span></h2>
-    <p>High Scores:</p>
+<h2 id = "yourScore">Your score: <span id="scoreNum"></span></h2>
+    <p id = "title" >High Scores:</p>
 
     <!-- top 10: -->
-    <table>
+    <table id = "moves">
         <tr>
-            <th>Username</th>
+            <th>Username</th> 
             <th>Score</th>
         </tr>
             <tr *ngFor="let item of scoreArray | slice:0:10;">

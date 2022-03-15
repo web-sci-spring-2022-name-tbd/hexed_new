@@ -80,7 +80,7 @@ export class AppComponent {
   stopGame(timer: TimerComponent) {
     this.startTheGame = false;
     hide(this.timerHTML!);
-    hide(this.colorHTML!)
+    hide(this.colorHTML!);
     hide(this.scoreHTML!);
     let submitButton = document.getElementById("submitScore") as HTMLElement;
     timer.stop();
@@ -95,7 +95,7 @@ export class AppComponent {
     let name: String = this.name;
     let info = data.getScore(timeRemaining, timeLimit, color, name) as Array<string | number>;
     data.updateScores(info);
-    show(this.scoreHTML!, 'block')
+    show(this.scoreHTML!, 'block') 
   }
 }
 

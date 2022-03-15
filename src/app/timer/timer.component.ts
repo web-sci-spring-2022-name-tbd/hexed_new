@@ -11,10 +11,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TimerComponent implements OnInit {
   intervalID = 0;
   // message = '';
-  
+  checker = true;
 
   @Input() seconds: number = 60;
   @Input() message: String = "";
+  
 
   constructor() { }
 
@@ -35,18 +36,27 @@ export class TimerComponent implements OnInit {
   countDown() {
     this.clearTimer();
     this.intervalID = window.setInterval(() => {
-      if (this.seconds == 0) {
-        this.message = '0 seconds remaining';
-        alert("you are out of time")
-        // emit something to parent
-        this.clearTimer();
-      } else {
-        this.message = `${this.seconds} second${this.seconds === 1 ? '' : 's'} left`;
-        this.seconds -= 1;
-      }
+      // if (this.checker) {
+        if (this.seconds == 0) {
+          this.message = '0 seconds remaining';
+          alert("you are out of time")
+          // emit something to parent
+          this.clearTimer();
+        } else {
+          this.message = `${this.seconds} second${this.seconds === 1 ? '' : 's'} left`;
+          this.seconds -= 1;
+        }
+      // } else {
+      //   this.clearTimer();
+      // }
     }, 1000);
+  
   }
 
+  // stopCountDown() {
+  //   this.checker = false;
+  //   this.message = `${this.seconds} second${this.seconds === 1 ? '' : 's'} left`;
+  // }
 }
 
 
