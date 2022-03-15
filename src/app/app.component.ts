@@ -89,6 +89,7 @@ export class AppComponent {
 
   parentScore(data: ScoreComponent, timer: TimerComponent) {
     let timeRemaining: number = Number(timer.seconds);
+    timer.stop();
     let timeLimit: number = this.timeVal;
     let color: String = document.querySelector("body")!.style.backgroundColor;
     console.log(color);
