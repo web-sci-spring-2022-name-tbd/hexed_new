@@ -5,32 +5,42 @@
   margin-top: 15px;
   flex-flow: column;
 }
+
 #high-scores {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 3%;
-  
-  }
-  
-  #high-scores td, #high-scores th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  #high-scores tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #high-scores tr:hover {background-color: #ddd;}
-  
-  #high-scores th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #04AA6D;
-    color: white;
-  }
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+
+}
+
+#submitScore {
+  background-color: rgb(219, 219, 219);
+}
+
+#high-scores td, #high-scores th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#high-scores tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#high-scores tr:hover {
+  background-color: #ddd;
+}
+
+#high-scores th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
 /* ----------------------------------------------------------- */
 #title {
   font-size: 2.5vw;
@@ -42,33 +52,41 @@
   margin-right: auto;
   border-collapse: collapse;
   width: 50%;
-  }
-  
-  #moves td, #moves th {
+}
+
+#moves td, #moves th {
   border: 1px solid rgb(0, 0, 0);
   padding: 8px;
-  }
-  
-  #moves tr:nth-child(even){background-color: #f2f2f2;}
-  #moves tr:nth-child(odd) {background-color: #8a8a8a;}
-  
-  #moves tr:nth-child(odd):hover {background-color: #ddd;}
-  /* #moves tr:nth-child(even):hover {background-color: #ffa7a4;} */
-  
-  #moves th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #07a8ff;
-    color: white;
-    font-size: 200%;
-  }
+}
 
-  #yourScore {
-    text-align: center;
-  }
+#moves tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-  /* .hover-underline-animation {
+#moves tr:nth-child(odd) {
+  background-color: #8a8a8a;
+}
+
+#moves tr:nth-child(odd):hover {
+  background-color: #ddd;
+}
+
+/* #moves tr:nth-child(even):hover {background-color: #ffa7a4;} */
+
+#moves th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #07a8ff;
+  color: white;
+  font-size: 200%;
+}
+
+#yourScore {
+  text-align: center;
+}
+
+/* .hover-underline-animation {
     display: inline-block;
     position: relative;
   }

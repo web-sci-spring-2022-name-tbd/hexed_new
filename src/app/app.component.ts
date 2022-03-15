@@ -57,6 +57,9 @@ export class AppComponent {
 
     this.startTheGame = true;
 
+    // Show slider 
+    let sliderCntDiv = document.getElementById("slider-cnt") as HTMLElement;
+    show(sliderCntDiv, "flex");
   }
 
   startTimer(timer: TimerComponent, seconds: number = 60) {
@@ -90,6 +93,8 @@ export class AppComponent {
   parentScore(data: ScoreComponent, timer: TimerComponent) {
     let timeRemaining: number = Number(timer.seconds);
     timer.stop();
+    let sliderCntDiv = document.getElementById("slider-cnt") as HTMLElement;
+    hide(sliderCntDiv);
     let timeLimit: number = this.timeVal;
     let color: String = document.querySelector("body")!.style.backgroundColor;
     console.log(color);
